@@ -1,0 +1,489 @@
+@import url('https://fonts.cdnfonts.com/css/cabinet-grotesk');
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+  }
+
+  section {
+    padding: 0 2rem;
+    z-index: 1;
+  }
+  
+  nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    z-index: 1000;
+    transition: all 0.5s ease;
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 5%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  nav.scrolled {
+    background: #23005A !important; 
+    box-shadow: 0 7px 10px rgba(0,0,0,0.3) !important;
+    height: 4rem !important;
+    border: none !important;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3.2rem;
+    flex-wrap: nowrap;
+  }
+
+  nav ul li {
+      margin-left: 0;
+  }
+
+  nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+      white-space: nowrap;
+  }
+
+  nav ul li a:hover {
+      color: white;
+      border-bottom: 2px solid white;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    --webkit-transform: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white; /* Coffee brown */
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .burger {
+    display: none;
+    cursor: pointer;
+  }
+
+
+.about {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+    gap: 50px;
+    height: 80vh;
+    background-image: url(https://images.unsplash.com/photo-1617952739760-1dcae19a1d93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    z-index: 2;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 0;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 380px;
+    margin-left: 100px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    margin-bottom: 4rem;
+    text-align: center;
+    background-color: #0000005d;
+    padding: 2rem;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats strong {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.stats span {
+    color: #ccc;
+}
+
+.why-us {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+    height: 60vh;
+    color: #fff;
+    background-color: #23005A;
+}
+
+.why-us .head-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    max-width: 40%;
+}
+
+.why-us .head-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.why-us .head-text p {
+    font-size: 1rem;
+    margin-left: 100px;
+}
+
+.why-us .list {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    width: 400px;
+    margin-right: 4rem;
+}
+
+.why-us .list ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.why-us .list ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #180042;
+    padding: 30px;
+    text-align: center;
+}
+
+.why-us .list ul li:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.why-us .list ul li i {
+    font-size: 2rem;
+}
+
+.why-us .list h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.why-us .list p {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+.why-us .list ul .list-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Vision */
+.vision {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 0;
+    height: 80vh;
+}
+
+.vision-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    padding-right: 50px;
+}
+
+.vision-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000;
+    margin-top: 0;
+}
+
+.vision-text p {
+    font-size: 1rem;
+    color: #555;
+    margin-left: 100px;
+}
+
+.vision-image {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.vision-image img {
+    width: 100%;
+    max-height: 60vh;
+    max-width: 80%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #e6e6e6;
+    padding: 50px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    color: #23005A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.contact-section .contact-image {
+    width: 50%;
+    max-height: 100%;
+}
+
+.contact-section .contact-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-section .contact-container {
+    width: 50%;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contact-section .subtitle {
+    color: #555;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.contact-form {
+    max-width: 90%;
+    margin: 0;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 1rem;
+    color: #23005A;
+    background-color: #f9f9f9;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+.contact-form button {
+    background-color: #23005A;
+    color: #ffffff;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+.contact-form button:hover {
+    background-color: #2d0c6e;
+}
+
+/* Footer */
+.footer {
+    background-color: #180042;
+    color: #ffffff;
+    padding: 60px 20px 20px 20px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-left h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.footer-left p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #bbbbff;
+}
+
+.footer-contact p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #23005A;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #cccccc;
+}
