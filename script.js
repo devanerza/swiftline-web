@@ -134,11 +134,11 @@ const cta = document.querySelectorAll('.cta');
 
 gridItemOverlay.forEach((overlay, index) => {
     overlay.addEventListener('mouseover', () => {
-        previewContent[index].classList.remove('active');
+        previewContent[index].classList.add('not-active');
         cta[index].classList.add('active');
     });
     overlay.addEventListener('mouseout', () => {
-        previewContent[index].classList.add('active');
+        previewContent[index].classList.remove('not-active');
         cta[index].classList.remove('active');
     });
 });
