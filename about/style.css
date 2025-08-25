@@ -35,6 +35,7 @@ header {
     border-bottom: 1px solid transparent;
     z-index: 1000;
     transition: all 0.5s ease;
+    padding: 0 20px;
   }
 
   nav .container {
@@ -44,7 +45,7 @@ header {
     width: 100%;
     box-sizing: border-box;
     padding: 1rem 5%;
-    max-width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -72,8 +73,10 @@ header {
       text-decoration: none;
       color: white;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
       white-space: nowrap;
+      display: block;
+      padding: 10px 0;
   }
 
   nav ul li a:hover {
@@ -84,6 +87,7 @@ header {
   .hamburger {
     display: none;
     cursor: pointer;
+    z-index: 1001;
   }
 
   .hamburger .bar {
@@ -92,7 +96,8 @@ header {
     height: 3px;
     background-color: white;
     margin: 5px 0;
-    --webkit-transform: all 0.3s ease-in-out;
+    -webkit-transform: all 0.3s ease-in-out;
+    transform: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
   
@@ -112,6 +117,7 @@ header {
     text-decoration: none;
     color: white;
     font-weight: 500;
+    transition: color 0.3s ease;
   }
   
   .burger {
@@ -123,11 +129,11 @@ header {
 .about {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 80px;
-    gap: 50px;
-    height: 80vh;
+    padding: 0 40px;
+    gap: 30px;
+    height: 120vh;
     background-image: url(https://images.unsplash.com/photo-1617952739760-1dcae19a1d93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
     background-position: center;
@@ -143,11 +149,13 @@ header {
 }
 
 .about-text {
+    margin-top: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 5rem;
     z-index: 2;
+    margin-left: 68px;
 }
 
 .about-text h2 {
@@ -161,23 +169,27 @@ header {
 .about-text p {
     font-size: 1rem;
     color: #fff;
-    max-width: 380px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
     margin-left: 100px;
 }
 
 .stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
+    gap: 2rem;
     margin-top: 40px;
     font-size: 0.9rem;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    margin-bottom: 4rem;
+    margin: 40px auto 4rem;
     text-align: center;
     background-color: #0000005d;
-    padding: 2rem;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 600px;
 }
 
 .stats div {
@@ -209,7 +221,7 @@ header {
 .why-us .head-text {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 50px;
     max-width: 40%;
 }
 
@@ -405,6 +417,216 @@ header {
 
 .contact-form button:hover {
     background-color: #2d0c6e;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    gap: 2rem;
+  }
+  
+  .about-text h2, .why-us .head-text h2, .vision-text h2, .contact-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .why-us {
+    padding: 60px;
+    height: auto;
+  }
+  
+  .why-us .list {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .about, .why-us, .vision {
+    padding: 80px 40px;
+    height: auto;
+  }
+  
+  .about-text h2, .why-us .head-text h2, .vision-text h2, .contact-section h2 {
+    font-size: 2rem;
+  }
+  
+  .why-us {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .why-us .head-text, .vision-text {
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .why-us .head-text p, .vision-text p {
+    margin-left: 0;
+  }
+  
+  .why-us .list {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .vision {
+    flex-direction: column-reverse;
+  }
+  
+  .vision-text {
+    max-width: 100%;
+    padding-right: 0;
+  }
+  
+  .vision-image {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .vision-image img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .contact-section {
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 20px;
+  }
+  
+  .contact-section .contact-image,
+  .contact-section .contact-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    gap: 0;
+    flex-direction: column;
+    background-color: #23005A;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    padding: 100px 0 30px;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links li {
+    margin: 25px 0;
+  }
+  
+  .nav-links li a {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about-text {
+    margin-top: 100px;
+  }
+  
+  .about, .why-us, .vision {
+    padding: 70px 20px;
+  }
+  
+  .about-text h2, .why-us .head-text h2, .vision-text h2, .contact-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about-text p, .why-us .head-text p, .vision-text p, .contact-section .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+    width: 95%;
+  }
+  
+  .stats strong {
+    font-size: 1.3rem;
+  }
+  
+  .stats span {
+    font-size: 0.8rem;
+  }
+  
+  .why-us .list ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-left, .footer-links, .footer-contact {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about, .why-us, .vision {
+    padding: 60px 15px;
+  }
+  
+  .about-text h2, .why-us .head-text h2, .vision-text h2, .contact-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about-text p, .why-us .head-text p, .vision-text p, .contact-section .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .stats strong {
+    font-size: 1.2rem;
+  }
+  
+  .stats span {
+    font-size: 0.75rem;
+  }
+  
+  .contact-form {
+    max-width: 100%;
+  }
 }
 
 /* Footer */

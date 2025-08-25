@@ -244,6 +244,8 @@ header {
     display: block;
 }
 
+/* Why Us */
+
 .why-us {
     position: relative;
     display: flex;
@@ -723,4 +725,224 @@ header {
     text-align: center;
     font-size: 0.85rem;
     color: #cccccc;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    nav {
+        background-color:  #23005A;
+        color: #FF8563;
+        border: none;
+        height: 5rem;
+    }
+
+    .logo-1 {
+        display: none;
+    }
+
+    .logo-2 {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+     
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 64px;
+        left: -100%;
+        gap: 0;
+        flex-direction: column;
+        background-color: #3F3D56;
+        width: 100%;
+        text-align: left;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: 0.3s ease-in-out;
+        padding: 1rem 0;
+        display: block;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 0.8rem 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 0.5rem 0;
+        color: #FF8563;
+    }
+
+    .nav-links li .btn {
+        text-align: center;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .about {
+        flex-direction: column;
+        padding: 40px;
+        height: 150vh;
+        padding-top: 100px;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .about-text {
+        padding: 20px;
+    }
+
+    .about-image {
+        width: 100%;
+        max-height: 100%;
+        position: relative;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-height: 100vh;
+        object-fit: cover;
+        display: block;
+    }
+
+    .why-us {
+        flex-direction: column;
+        padding: 40px;
+        height: 170vh;
+        padding-top: 100px;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .why-us .head-text {
+        gap: 1rem;
+        max-width: 100%;
+    }
+
+    .why-us .head-text p {
+        margin: 0;
+        margin-left: 50px;
+        margin-right: 10px;
+    }
+
+    .why-us .list {
+        max-width: 90%;
+        margin: 0;
+    }
+
+    .why-us .list ul {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .why-us .list ul li {
+        width: 100%;
+    }
+
+    .services {
+        padding: 30px;
+        height: 315vh;
+        padding-top: 100px;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .services .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+
+    .services .grid-container .grid-item {
+        order: 2;
+    }
+
+    .services .grid-container .text {
+        order: 1;
+        height: 250px;
+        width: 420px;
+        justify-content: center;
+    }
+
+    .services .grid-container .grid-item-2 {
+        margin: 0;
+        margin-left: 15px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .services .grid-container .grid-item-2 p {
+        margin: 0;
+        margin-right: 20px;
+    }
+
+    .services .grid-container .grid-item-5 {
+        justify-content: flex-start;
+    }
+
+    .services .grid-container .grid-item-5 p {
+        margin-left: 50px;
+        margin-bottom: 50px;
+    }
+
+    .testimonial-section p {
+        font-size: 13px;
+    }
+
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .contact-section .contact-image {
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .contact-section .contact-container {
+        width: 78%;
+        margin-bottom: 50px;
+    }
 }

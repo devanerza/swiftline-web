@@ -1,11 +1,13 @@
 // NAVBAR
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Hamburger menu toggle
+    // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const navContainer = document.querySelector('nav .container');
+    const navbar = document.querySelector('nav');
   
+    // Mobile menu functionality
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -52,28 +54,110 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     // Navbar scroll effect
+    let prevScrollPos = window.pageYOffset;
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('nav');
-        // console.log('Scroll Y:', window.scrollY); // Debug log
+        // Add/remove scrolled class based on scroll position
         if (window.scrollY > 50) {
-            // console.log('Adding scrolled class'); // Debug log
             navbar.classList.add('scrolled');
         } else {
-            // console.log('Removing scrolled class'); // Debug log
             navbar.classList.remove('scrolled');
         }
-        // console.log('Navbar classes:', navbar.className); // Debug log
+
+        // Hide/show navbar on scroll
+        const currentScrollPos = window.pageYOffset;
+        if (prevScrollPos > currentScrollPos) {
+            navbar.style.top = '0';
+        } else {
+            navbar.style.top = '-100px';
+        }
+        prevScrollPos = currentScrollPos;
     });
 
-    // Navbar scroll new
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector(".navbar").style.top = "0";
-        } else {
-            document.querySelector(".navbar").style.top = "-100px";
+    // Initialize GSAP animations if screen is wide enough
+    if (window.innerWidth > 768) {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to(".panels", {
+                xPercent: -200,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".services",
+                    pin: true,
+                    scrub: true,
+                    end: "+=3000",
+                }
+            });
         }
-        prevScrollpos = currentScrollPos;
+    } else {
+        // For mobile, add touch event listeners for swiping
+        const panels = document.querySelector('.panels');
+        if (panels) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let currentPanel = 0;
+            const totalPanels = document.querySelectorAll('.panel').length;
+
+            function goToPanel(index) {
+                if (index < 0) index = 0;
+                if (index >= totalPanels) index = totalPanels - 1;
+                
+                currentPanel = index;
+                panels.style.transform = `translateX(-${currentPanel * 100}%)`;
+            }
+
+            panels.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+
+            panels.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const difference = touchStartX - touchEndX;
+
+                if (Math.abs(difference) > swipeThreshold) {
+                    if (difference > 0) {
+                        goToPanel(currentPanel + 1);
+                    } else {
+                        goToPanel(currentPanel - 1);
+                    }
+                }
+            }
+
+            // Initialize panels for mobile
+            panels.style.display = 'flex';
+            panels.style.transition = 'transform 0.3s ease';
+        }
+    }
+
+    // Testimonials functionality
+    const testimonials = document.querySelectorAll('.testimonial');
+    if (testimonials.length > 0) {
+        let currentTestimonial = 0;
+        testimonials[0].classList.add('active');
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            currentTestimonial = (index + testimonials.length) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }
+
+        function nextTestimonial() {
+            showTestimonial(currentTestimonial + 1);
+        }
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Add navigation buttons if they exist
+        const prevBtn = document.querySelector('.testimonial-nav.prev');
+        const nextBtn = document.querySelector('.testimonial-nav.next');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => showTestimonial(currentTestimonial - 1));
+        if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
     }
 });

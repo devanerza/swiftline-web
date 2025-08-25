@@ -99,13 +99,9 @@ const observer = new IntersectionObserver((entries) => {
                         stat.textContent = (target === 99.9) ? target.toFixed(1) : Math.floor(target);
                         
                         // Add percentage or plus sign based on the target value
-                        // if (target === 99.9) {
-                        //     stat.textContent += '%';
-                        // } else if (target === 200) {
-                        //     stat.textContent += '+';
-                        // } else if (target === 40) {
-                        //     stat.textContent += '%';
-                        // }
+                        if (target === 4000 || target === 1000 || target === 300) {
+                            stat.textContent += '+';
+                        }
                     }
                 };
                 

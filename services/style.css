@@ -73,8 +73,10 @@ header {
       text-decoration: none;
       color: white;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
       white-space: nowrap;
+      display: block;
+      padding: 10px 0;
   }
 
   nav ul li a:hover {
@@ -85,6 +87,7 @@ header {
   .hamburger {
     display: none;
     cursor: pointer;
+    z-index: 1001;
   }
 
   .hamburger .bar {
@@ -226,6 +229,7 @@ header {
     position: relative;
     overflow: hidden;
     padding: 0;
+    scroll-snap-type: x mandatory;
   }
   
   .services .panels {
@@ -235,7 +239,7 @@ header {
   }
   
   .services .panels .panel {
-    flex: 0 0 92vw;
+    flex: 0 0 100vw;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -246,6 +250,7 @@ header {
     border-right: 2px solid #ccc;
     gap: 2rem;
     padding: 0 3rem;
+    scroll-snap-align: start;
   }
 
   .services .panels .panel h2 {
@@ -273,9 +278,10 @@ header {
     padding: 12px 40px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     font-family: 'Cabinet Grotesk', sans-serif;
-    width: 30%;
+    width: 50%;
+    max-width: 200px;
   }
 
   .service-content button:hover {
@@ -284,8 +290,9 @@ header {
   }
 
   .service-image {
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 60%;
+    min-height: 300px;
   }
 
   .service-image img {
@@ -378,6 +385,209 @@ header {
 
 .controls button:hover {
     background-color: #2d0c6e;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+
+  .services .panels .panel {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    gap: 2rem;
+  }
+  
+  .service-content, .service-image {
+    width: 100% !important;
+    height: auto;
+  }
+  
+  .service-content button {
+    margin: 0 auto;
+  }
+  
+  .about {
+    padding: 60px 40px;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .about-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+  
+  .about-text {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    gap: 0;
+    flex-direction: column;
+    background-color: #23005A;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    padding: 100px 0 30px;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links li {
+    margin: 25px 0;
+  }
+  
+  .nav-links li a {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .hero-content {
+    padding: 40px 20px;
+    margin-top: 6rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  
+  .about-text h2, .testimonial-section h2, .contact-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+  
+  .contact-section .contact-image,
+  .contact-section .contact-container {
+    width: 100%;
+  }
+  
+  .services .panels .panel {
+    padding: 20px 15px;
+  }
+  
+  .services .panels .panel h2 {
+    font-size: 1.8rem;
+  }
+  
+  .services .panels .panel p {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about {
+    padding: 40px 20px;
+  }
+  
+  .about-text p {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .services .panels .panel {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .service-content button {
+    width: 80%;
+  }
+  
+  .testimonial {
+    padding: 30px 20px;
+  }
+  
+  .testimonial p {
+    font-size: 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-left, .footer-links, .footer-contact {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hero {
+    height: 80vh;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about {
+    padding: 30px 15px;
+  }
+  
+  .about-text h2, .testimonial-section h2, .contact-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .services .panels .panel {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 15px 40px;
+  }
+  
+  .service-content button {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .testimonial .profile {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonial-section p {
+    font-size: 13px;
+  } 
+  
+  .contact-form button {
+    width: 100%;
+  }
 }
 
 /* Contact Section */
