@@ -881,7 +881,7 @@ header {
 
     .services {
         padding: 30px;
-        height: 1000px;
+        height: auto;
         padding-top: 100px;
         justify-content: center;
         align-items: center;
