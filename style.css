@@ -733,7 +733,7 @@ header {
 @media (max-width: 768px) {
     nav {
         background-color:  #23005A;
-        color: #FF8563;
+        color: #fff;
         border: none;
         height: 5rem;
     }
@@ -769,7 +769,7 @@ header {
         left: -100%;
         gap: 0;
         flex-direction: column;
-        background-color: #3F3D56;
+        background-color: #23005A;
         width: 100%;
         text-align: left;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -795,7 +795,7 @@ header {
     .nav-links li a {
         display: block;
         padding: 0.5rem 0;
-        color: #FF8563;
+        color: #fff;
     }
 
     .nav-links li .btn {
