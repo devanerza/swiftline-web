@@ -880,8 +880,8 @@ header {
     }
 
     .services {
-        padding: 0px;
-        height: 280vh;
+        padding: 30px;
+        height: 180vh;
         padding-top: 100px;
         justify-content: center;
         align-items: center;
@@ -891,16 +891,17 @@ header {
     .services .grid-container {
         grid-template-columns: repeat(1, 1fr);
         gap: 1rem;
+        width: 100%;
     }
 
     .services .grid-container .grid-item {
         order: 2;
+        width: auto;
     }
 
     .services .grid-container .text {
         order: 1;
         height: 250px;
-        width: 420px;
         justify-content: center;
     }
 
