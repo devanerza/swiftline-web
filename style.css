@@ -802,6 +802,10 @@ header {
         text-align: center;
     }
 
+    .hero {
+        height: auto;
+    }
+
     .hero-content {
         padding: 20px;
     }
@@ -815,7 +819,7 @@ header {
     .about {
         flex-direction: column;
         padding: 40px;
-        height: 150vh;
+        height: auto;
         padding-top: 100px;
         justify-content: center;
         align-items: center;
@@ -842,7 +846,7 @@ header {
     .why-us {
         flex-direction: column;
         padding: 40px;
-        height: 170vh;
+        height: auto;
         padding-top: 100px;
         justify-content: center;
         align-items: center;
@@ -901,7 +905,7 @@ header {
 
     .services .grid-container .text {
         order: 1;
-        height: 250px;
+        height: 380px;
         justify-content: center;
     }
 
