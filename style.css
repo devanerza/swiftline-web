@@ -880,8 +880,8 @@ header {
     }
 
     .services {
-        padding: 30px;
-        height: 315vh;
+        padding: 0px;
+        height: 280vh;
         padding-top: 100px;
         justify-content: center;
         align-items: center;
